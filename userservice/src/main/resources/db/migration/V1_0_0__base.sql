@@ -8,4 +8,4 @@ CREATE TABLE shopapp.user (
     last_name  TEXT,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP
-)
+);
