@@ -8,12 +8,16 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
 abstract public class IntegrationAbstractTest {
+    private static final String CONTAINER_VERSION = "postgres:10.6";
+    private static final String DATABASE_NAME = "shopapp";
+    private static final String DATABASE_USERNAME = "shopapp";
+    private static final String DATABASE_PASSWORD = "shopapp";
 
     @Container
-    private static final PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:10.6")
-            .withDatabaseName("shopapp")
-            .withUsername("shopapp")
-            .withPassword("shopapp");
+    private static final PostgreSQLContainer postgres = new PostgreSQLContainer(CONTAINER_VERSION)
+            .withDatabaseName(DATABASE_NAME)
+            .withUsername(DATABASE_USERNAME)
+            .withPassword(DATABASE_PASSWORD);
 
     @DynamicPropertySource
     static void postgresProperties(DynamicPropertyRegistry registry) {
